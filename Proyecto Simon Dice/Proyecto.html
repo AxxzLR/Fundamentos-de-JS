@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simon dice</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaina+2:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="ProyectoCSS.css" />
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</head>
+<body>
+    <div class="infoBar">
+        <p>Ronda <span id="rndActual">0</span> de <span id="rndTotal">0</span></p>
+        <p>Score Actual <span id="Score">0</span></p>
+        <span class="material-icons btnEnd" id="exitGame">cancel</span>
+    </div>
+    <div class="indicator-container"><p id="indUser" class="etqHide">Hola</p></div>
+    <div class="container">
+        <div id="btnUpLeft" class="game-button up-left" data-color="Verde"></div>
+        <div id="btnUpright" class="game-button up-right" data-color="Azul"></div>
+        <div id="btnDownLeft" class="game-button down-left" data-color="Rojo"></div>
+        <div id="btnDownright" class="game-button down-right" data-color="Amarillo"></div>
+    </div>
+    <div id="Notification" class="hide">
+        <div class="Notification__container">
+            <span class="close" onclick="CloseNotify()">×</span>
+            <span class="title_form" id="title_notify"></span>
+            <div class="backWhite" id="text_notify"></div>
+        </div>
+    </div>
+    <div id="HomeMenu">
+        <div class="Notification__container">
+            <span class="title_form" id="title_Menu">Simon Dice</span>
+            <div class="backWhite" id="text_Menu">
+                <h2>¡Bienvenido al Juego!</h2>
+                <br />
+                <h3>Instrucciones</h3>
+                <br />
+                <p>Repite la secuencia de luces en el orden correcto.</p>
+                <p>Cada nivel aumentara las repeticiones.</p>
+                <br />
+                <h3>¡Suerte!</h3>
+                <div class="ctrlNiveles">
+                    <label for="txtNivel">Seleccionar nivel</label>
+                    <input type="number" id="txtNivel" placeholder="Ingresa un nivel." class="input" min="1" max="30"/>
+                    <span id="MenuError" class="Error"></span>
+                </div>
+                <button id="btnIniciar" class="btnNotify" onclick="EmpezarJuego()">Iniciar</button>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="ProyectoJS.js"></script>
+</html>
