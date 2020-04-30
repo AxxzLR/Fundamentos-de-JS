@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        const Axel = {
+            nombre:'Axel',
+            apellido:'Lopez',
+            edad:24
+        }
+
+        const Karen = {
+            nombre:'Karen',
+            apellido:'Santamaria',
+            edad:24
+        }
+
+        function Saludar(saludo ='Hola'){
+            console.log(`${saludo}, mi nombre es ${this.nombre} ${this.apellido}`)
+        }
+        //Si se ejecuta directamente, this sera window
+        Saludar()
+
+        //Con bind podemos ligar el contexto this de una funcion
+        //Bind no ejecuta la funcion en ese momento
+
+        //Salvando la definicion
+        const saludarAxel = Saludar.bind(Axel)
+        const saludarKaren = Saludar.bind(Karen)
+        saludarAxel()
+        saludarKaren()
+
+        //generando la funcion de forma anonima
+        //Si se desea pasar los parametros, se deben colocar, separados con comas
+        //despues del elemento generado como this
+        setTimeout(Saludar.bind(Axel, 'Hola amigo'), 1000);
+        //en ambos ejemplos la funcion no esta ligada, ya que se crea una nueva.
+
+        //Utilizando call y apply estos metodos si ejecutan la funcion en ese moemento.
+        Saludar.call(Axel)
+        Saludar.apply(Axel)
+        //para pasar los parametros
+        //con call se pasan de igual forma que el bind
+        Saludar.call(Axel, 'Hola desde call')
+        //y en apply se pasan en un arreglo, seguido del elemento que tomara this
+        Saludar.apply(Axel, ['Hola desde apply'])
+
+        //estos metodos se ocupan especialmente al llamar a funciones asincronas
+        //para no perder el contexto de quien es this.
+    </script>
+</head>
+<body>
+</body>
+</html>

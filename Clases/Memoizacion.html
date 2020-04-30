@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            La momoización nos sirve para ahorrar computo, salvando informacion de procesos anteriores
+            en una especie de cache, para reutilizarlo en procesos posteriores.
+            Factorial
+            !6 = 6 * 5 * 4 * 3 * 2 * 1 = 720
+            !12 = 12 * 11 * 10 * 9 * 8 * 7 * [ 6 * 5 * 4 * 3 * 2 * 1 ] = 720
+        */
+
+        function factorial(n) {
+            //this es window
+
+            //Se define el objeto cache
+            if (!this.cache) {
+                this.cache = {}
+            }
+
+            //Si el proceso se encuentra en el proceso cache se devolvera
+            if (this.cache[n]) {
+                return this.cache[n]
+            }
+
+            // caso base -- Cuando se llega al valor 1 solo se retorna 1
+            if (n === 1) {
+                return 1
+            }
+
+            //Se realiza el proceso y se guarda el computo en el cache
+            this.cache[n]= n * factorial(n - 1)
+            return this.cache[n]
+        }
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>

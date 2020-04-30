@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        const Axel = {
+            nombre:'Axel',
+            apellido:'Lopez',
+            edad:24
+        }
+
+        /*
+            Efecto de lado (Modifica el objeto principal)
+        */
+        const cumpleaños = persona => persona.edad++
+        /*
+            Para evitar este efecto de lado, se debe desglozar el objeto principal
+            en uno nuevo, que contenga la o las modificaciones que genere la funcion
+        */
+       const cumpleañosInmutable =  persona => ({
+           ...persona, //desglozamos persona
+           edad: persona.edad+1
+       })
+    </script>
+</head>
+<body>
+</body>
+</html>

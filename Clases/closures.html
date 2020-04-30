@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            los closures es una funcion que recuerda el estado de las variables al momento
+            de ser invocadas y conserva ese estado a traves de reiteradas ejecuciones
+            Como aspecto fundamental los closures retornan funciones.
+        */
+
+        function crearSaludo(finalDeFrase){
+            return function (nombre){
+                console.log(`Hola ${nombre}, ${finalDeFrase}`)
+            }
+        }
+
+        const saludoMexicano = crearSaludo('Carnal')
+        const saludoColombiano = crearSaludo('Parce')
+        const saludoVenezolano = crearSaludo('Pana')
+        const saludoArgentino = crearSaludo('Che')
+        const saludoChileno = crearSaludo('Weon')
+
+        saludoMexicano('Axel')
+        saludoColombiano('Axel')
+        saludoVenezolano('Axel')
+        saludoArgentino('Axel')
+        saludoChileno('Axel')
+    </script>
+</head>
+<body>
+</body>
+</html>
