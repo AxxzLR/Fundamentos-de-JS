@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //La diferencia entre declarar variables con var, let y const
+        //""var"" es la manera más antigua de declarar variables. No es muy estricta en cuanto al alcance, ya que al declarar variables de esta forma, dichas variables podrán ser accedidas, e incluso modificaddas, tanto dentro como fuera de los bloques internos en una función.
+        //Con ""let"" por otra parte, el alcance se reduce al bloque (las llaves) en el cual la variable fue declarada. Fuera de este bloque la variable no existe. Una vez declarada la variable con let, no se puede volver a declarar con en ninguna otra parte de la función.
+        // ""const"" al igual que ""let"" se define en el contexto o alcance de un bloque, a diferencia de let y var, las varibles definidas como constantes (const), ya no podrán ser modificadas ni declaradas nuevamente, en ninguna otra parte de la función o el contexto en el que ya existen.
+        //La recomendación es reducir siempre al mínimo el alcance de nuestras variables, por lo que se debe usar let en lugar de var mientras sea posible.
+
+        var Axel = {
+            nombre: 'Axel',
+            apellido: 'Lopez',
+            edad: 17
+        }
+
+        // function esMayorDeEdad(persona){
+        //     if(persona.edad>=18){
+        //         //aqui podemos observar que la variable funciona como global y se puede declara y redefinir varias veces
+        //         var mensaje = 'Es mayor de edad'
+        //     }
+        //     else{
+        //         var mensaje = 'Es menor de edad'
+        //     }
+        //     console.log(mensaje)
+        // }
+
+        //Es similar a
+        // function esMayorDeEdad(persona){
+        //     var mensaje
+        //     if(persona.edad>=18){
+        //         //aqui podemos observar que la variable funciona como global y se puede declara y redefinir varias veces
+        //         mensaje = 'Es mayor de edad'
+        //     }
+        //     else{
+        //         mensaje = 'Es menor de edad'
+        //         var mensaje2 //se crea sin definir
+        //     }
+        //     console.log(mensaje)
+        //     console.log(mensaje2) //se puede acceder sin que este definida
+        //     //console.log(mensaje3) //esto es un error por que nunca se definio
+        // }
+
+        //Demostrando con let
+        // function esMayorDeEdad(persona){
+        //     if(persona.edad>=18){
+        //         //aqui podemos observar que la variable funciona como global y se puede declara y redefinir varias veces
+        //         let mensaje = 'Es mayor de edad'
+        //     }
+        //     else{
+        //         let mensaje = 'Es menor de edad'
+        //     }
+        //     //console.log(mensaje)// esto nos dara un error, ya que let es solo de ambito local y no se puede acceder en este punto
+        // }
+
+        //haciendolo de forma correcta con let y const
+        function esMayorDeEdad(persona) {
+            let mensaje
+            const MAYORIA_DE_EDAD = 18
+            //MAYORIA_DE_EDAD = 21 //No se puede redefinir una variable const.
+            if (persona.edad >= MAYORIA_DE_EDAD) {
+                //aqui podemos observar que la variable funciona como global y se puede declara y redefinir varias veces
+                mensaje = 'Es mayor de edad'
+            }
+            else {
+                mensaje = 'Es menor de edad'
+            }
+            //console.log(mensaje)// esto nos dara un error, ya que let es solo de ambito local y no se puede acceder en este punto
+        }
+
+        //Para arrays si se declaran como const no se pueden redefinir
+        const array =[1,2,3,4,5,6,7]
+        console.log(array)
+        //array=[1,2,3]//No se puede redefinir por ser const
+        //Podemos adicionar valores utilizando push
+        array.push(8)
+        console.log(array)
+
+        //esMayorDeEdad(Axel)
+
+        //Utilizando ciclos for
+
+        //con var
+        // for (var i = 0; i < 10; i++) {
+        //     console.log(i)
+        // }
+        // console.log(`El valor de i es ${i}`)
+
+        //con let
+        for (let i = 0; i < 10; i++) {
+            console.log(i)
+        }
+        console.log(`El valor de i es ${i}`)
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>
