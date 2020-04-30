@@ -205,15 +205,15 @@ body {
 
 /* Indication */
 .indicator-container {
-    width           : 100%;
-    height          : 40px;
-    position        : fixed;
-    top             : 50px;
-    left            : 0;
-    justify-content : center;
-    align-items     : center;
-    display         : flex;
-    padding         : 0 20px;
+    width          : 100%;
+    height         : 40px;
+    position       : fixed;
+    top            : 50px;
+    left           : 0;
+    justify-content: center;
+    align-items    : center;
+    display        : flex;
+    padding        : 0 20px;
 }
 
 .indicator-container p {
